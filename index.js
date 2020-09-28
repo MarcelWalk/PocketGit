@@ -28,7 +28,7 @@ app.get('/api/delete', function(req, res) {
     console.log(repoName);
     console.log(path.resolve(__dirname, '.repos/' + repoName));
     rimraf.sync(path.resolve(__dirname, '.repos/' + repoName));
-    res.sendStatus(200);
+    res.redirect('/')
 });
 
 app.listen(7000);

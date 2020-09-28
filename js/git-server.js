@@ -9,7 +9,7 @@ class GitServer {
     }
 
     start = function (n) {
-        repos = new Server(path.resolve(__dirname, '.repos'), {
+        repos = new Server(path.resolve(__dirname, '../.repos'), {
             autoCreate: true
         });
         const port = process.env.PORT || n;
@@ -24,6 +24,7 @@ class GitServer {
                 push.log(' |    |  (  <_> )  \\___|    <\\  ___/|  |   \\    \\_\\  \\  ||  |  ');
                 push.log(' |____|   \\____/ \\___  >__|_ \\\\___  >__|    \\______  /__||__|  ');
                 push.log('                     \\/     \\/    \\/               \\/          ');
+                push.log('');
             });
 
             push.accept();
