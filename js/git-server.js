@@ -1,5 +1,6 @@
 const path = require('path');
 const Server = require('node-git-server');
+var ip = require('ip');
 let repos;
 
 class GitServer {
@@ -31,7 +32,7 @@ class GitServer {
         });
 
         repos.listen(port, () => {
-            console.log(`node-git-server running at http://localhost:${port}`)
+            console.log(`node-git-server running at http://${ip.address()}:${port}`)
         });
     }
 

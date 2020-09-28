@@ -14,20 +14,27 @@
 <body>
     <div id="app">
         <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">Pocket Git</a>
-            </nav>
             <div class="row">
-                <ul class="pill-list">
-                    <li v-for="item in info" class="pill">
+                <nav class="navbar navbar-expand-lg col-md-12 navbar-dark bg-dark">
+                    <a class="navbar-brand" href="#">Pocket Git</a>
+                </nav>
+            </div>
+
+
+            <div v-for="item in info" class="row">
+                <div class="card col-md-12">
+                    <div class="card-body">
                         {{ item }}
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
             <div class="row">
-                <form class="form" action="http://localhost:7000/api/delete" method="GET">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Repo Name" name="repoName">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Delete</button>
+                <form class="form col-md-12" action="./api/delete" method="GET">
+                    <div class="row">
+                        <input class="form-control col-md-10" type="search" placeholder="Repo Name" name="repoName">
+                    <button class="btn btn-danger col-md-2" type="submit">Delete</button>
+                    </div>
+                    
                 </form>
             </div>
         </div>

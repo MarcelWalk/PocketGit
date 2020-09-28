@@ -2,7 +2,7 @@ const path = require('path');
 const gitserver = require('./js/git-server');
 var rimraf = require("rimraf");
 var express = require('express');
-const { SSL_OP_EPHEMERAL_RSA } = require('constants');
+var ip = require('ip');
 
 let server = new gitserver.GitServer();
 server.start(7005);
@@ -13,7 +13,7 @@ var app = express();
 app.use(express.static(__dirname));
 
 app.get('/', function (req, res) {
-    res.sendFile(path.resolve(__dirname, 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'html/index.html'));
 });
 
 //API reruests
