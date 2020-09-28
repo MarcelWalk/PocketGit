@@ -34,11 +34,8 @@ class GitServer {
         });
     }
 
-    getRepos(){
-        repos.list((err, results) => {
-            console.log("1");
-            return results
-        });
+     getRepos(_callback) {
+            repos.list(_callback);
     }
 }
 

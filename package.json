@@ -9,6 +9,7 @@
   "author": "nyasaki",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.20.0",
     "express": "^4.17.1",
     "node-git-server": "^0.6.1",
     "vue": "^2.6.12"

@@ -1,6 +1,7 @@
 const path = require('path');
-const gitserver = require('./git-server');
+const gitserver = require('./js/git-server');
 var express = require('express');
+const { SSL_OP_EPHEMERAL_RSA } = require('constants');
 
 let server = new gitserver.GitServer();
 server.start(7005);
@@ -12,10 +13,11 @@ app.get('/', function (req, res) {
     res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
-app.get('/repos', function (req, res) {
-    var result = server.getRepos();
-    console.log(2)
-    res.send(result);
+app.get('/repos', async function (req, res) {
+    var result = server.getRepos((err, results) => {
+        console.log(results);
+        res.send(results);
+    });
 });
 
 app.listen(7000);
