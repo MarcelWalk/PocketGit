@@ -7,7 +7,7 @@ new Vue({
     },
     mounted() {
         axios
-            .get('http://localhost:7000/repos')
+            .get('http://localhost:7000/api/repos')
             .then(response => (this.info = response.data))
     }
 })

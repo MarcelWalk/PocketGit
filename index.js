@@ -15,11 +15,18 @@ app.get('/', function (req, res) {
     res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
-//API reruest=
-app.get('/repos', async function (req, res) {
+//API reruests
+app.get('/api/repos', async function (req, res) {
     var result = server.getRepos((err, results) => {
         res.send(results);
     });
+});
+
+app.get('/api/delete', function(req, res) {
+    var repoName = req.query.repoName;
+    console.log(repoName);
+    //delete repo folder here
+    res.sendStatus(200);
 });
 
 app.listen(7000);
