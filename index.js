@@ -1,5 +1,6 @@
 const path = require('path');
 const gitserver = require('./js/git-server');
+var rimraf = require("rimraf");
 var express = require('express');
 const { SSL_OP_EPHEMERAL_RSA } = require('constants');
 
@@ -25,7 +26,8 @@ app.get('/api/repos', async function (req, res) {
 app.get('/api/delete', function(req, res) {
     var repoName = req.query.repoName;
     console.log(repoName);
-    //delete repo folder here
+    console.log(path.resolve(__dirname, '.repos/' + repoName));
+    rimraf.sync(path.resolve(__dirname, '.repos/' + repoName));
     res.sendStatus(200);
 });
 
