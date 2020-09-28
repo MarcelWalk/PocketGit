@@ -5,10 +5,10 @@ let repos;
 class GitServer {
 
     constructor() {
-       
+
     }
 
-    start = function(n) {
+    start = function (n) {
         repos = new Server(path.resolve(__dirname, '.repos'), {
             autoCreate: true
         });
@@ -16,17 +16,16 @@ class GitServer {
 
         repos.on('push', (push) => {
             console.log(`push ${push.repo}/${push.commit} (${push.branch})`);
-            
-                        repos.list((err, results) => {
-                            push.log(' ');
-                            push.log('Hey!');
-                            push.log('Checkout these other repos:');
-                            for (const repo of results) {
-                                push.log(`- ${repo}`);
-                            }
-                            push.log(' ');
-                        });
-            
+
+            repos.list((err, results) => {
+                push.log('__________              __           __      ________.__  __   ');
+                push.log('\\______   \\____   ____ |  | __ _____/  |_   /  _____/|__|/  |_ ');
+                push.log(' |     ___/  _ \\_/ ___\\|  |/ // __ \\   __\\ /   \\  ___|  \\   __\\');
+                push.log(' |    |  (  <_> )  \\___|    <\\  ___/|  |   \\    \\_\\  \\  ||  |  ');
+                push.log(' |____|   \\____/ \\___  >__|_ \\\\___  >__|    \\______  /__||__|  ');
+                push.log('                     \\/     \\/    \\/               \\/          ');
+            });
+
             push.accept();
         });
 
@@ -35,8 +34,11 @@ class GitServer {
         });
     }
 
-    getRepos = function() {
-        return Array.from(repos.list);
+    getRepos(){
+        repos.list((err, results) => {
+            console.log("1");
+            return results
+        });
     }
 }
 

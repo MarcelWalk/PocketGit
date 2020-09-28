@@ -11,8 +11,11 @@ app.use(express.static(__dirname));
 app.get('/', function (req, res) {
     res.sendFile(path.resolve(__dirname, 'index.html'));
 });
+
 app.get('/repos', function (req, res) {
-    res.send(server.getRepos());
+    var result = server.getRepos();
+    console.log(2)
+    res.send(result);
 });
 
 app.listen(7000);
