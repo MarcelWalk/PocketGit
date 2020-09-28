@@ -1,21 +1,18 @@
 const path = require('path');
-const Server = require('node-git-server');
- 
-const repos = new Server(path.resolve(__dirname, 'tmp'), {
-    autoCreate: true
+const gitserver = require('./git-server');
+var express = require('express');
+
+let server = new gitserver.GitServer();
+server.start(7005);
+
+var app = express();
+app.use(express.static(__dirname));
+// respond with "hello world" when a GET request is made to the homepage
+app.get('/', function (req, res) {
+    res.sendFile(path.resolve(__dirname, 'index.html'));
 });
-const port = process.env.PORT || 7005;
- 
-repos.on('push', (push) => {
-    console.log(`push ${push.repo}/${push.commit} (${push.branch})`);
-    push.accept();
+app.get('/repos', function (req, res) {
+    res.send(server.getRepos());
 });
- 
-repos.on('fetch', (fetch) => {
-    console.log(`fetch ${fetch.commit}`);
-    fetch.accept();
-});
- 
-repos.listen(port, () => {
-    console.log(`node-git-server running at http://localhost:${port}`)
-});
+
+app.listen(7000);
