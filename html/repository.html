@@ -19,22 +19,13 @@
                     <a class="navbar-brand" href="#">Pocket Git</a>
                 </nav>
             </div>
-
-
-            <div v-for="item in data" class="row">
-                <div class="card col-md-12">
-                    <div class="card-body" >
-                        <h5 class="card-title">{{ item.name }}</h5>
-                        <a v-bind:href="item.url">Link</a>
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <form class="form col-md-12" action="./api/delete" method="GET">
                     <div class="row">
-                        <input class="form-control col-md-10" placeholder="Repo Name" name="repoName">
+                        <input class="form-control col-md-10" type="search" placeholder="Repo Name" name="repoName">
                     <button class="btn btn-danger col-md-2" type="submit">Delete</button>
                     </div>
+                    
                 </form>
             </div>
         </div>
@@ -44,7 +35,7 @@
 
 
     </div>
-    <script src="./js/index_vue.js"></script>
+    <script src="./js/repository_vue.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
