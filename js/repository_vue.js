@@ -2,7 +2,7 @@ new Vue({
     el: '#app',
     data() {
         return {
-            commits: null,
+            readme: null,
         }
     },
     mounted() {
@@ -14,7 +14,7 @@ new Vue({
         axios
             .get('./api/readme?repo=' + c)
             .then(response => (
-                this.commits = response.data
+                this.readme = response.data
             ))
     }
 })

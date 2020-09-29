@@ -5,9 +5,10 @@ const rimraf = require("rimraf");
 const express = require('express');
 const ip = require('ip');
 const url = require('url');
+var showdown  = require('showdown');
 
 let server = new gitserver.GitServer();
-server.start(7002);
+server.start(7005);
 
 var app = express();
 
@@ -41,10 +42,11 @@ app.get('/api/readme', async function (req, res) {
                         return _entry.getBlob();
                     })
                     .then(function (blob) {
-                        console.log(_entry.name(), _entry.sha(), blob.rawsize() + "b");
-                        console.log("========================================================\n\n");
                         var firstTenLines = blob.toString().split("\n").join("\n");
-                        console.log(firstTenLines);
+
+                        converter = new showdown.Converter(),
+                        
+                        res.send(converter.makeHtml(firstTenLines));
                     }).catch(err => console.log(err))
             } catch (err) {
                 console.log("Tree doesnt contain README");

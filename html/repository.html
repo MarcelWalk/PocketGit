@@ -19,6 +19,7 @@
                     <a class="navbar-brand" href="#">Pocket Git</a>
                 </nav>
             </div>
+
             <div class="row">
                 <form class="form col-md-12" action="./api/delete" method="GET">
                     <div class="row">
@@ -28,6 +29,11 @@
                     
                 </form>
             </div>
+
+            <div class="row">
+              <div v-html="readme"></div>  
+            </div>
+
         </div>
 
 
