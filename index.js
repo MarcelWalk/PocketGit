@@ -21,7 +21,9 @@ app.get('/', function (req, res) {
 app.get('/repository', function (req, res) {
     res.sendFile(path.resolve(__dirname, 'html/repository.html'));
 });
-
+app.get('/delete', function (req, res) {
+    res.sendFile(path.resolve(__dirname, 'html/delete.html'));
+});
 //API reruests
 app.get('/api/readme', async function (req, res) {
     const repoName = req.query.repo;

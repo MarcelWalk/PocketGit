@@ -15,27 +15,24 @@
     <div id="app">
         <div class="container-fluid">
             <div class="row">
-                <nav class="navbar navbar-expand-lg col-md-12 navbar-dark bg-dark">
+                <nav class="navbar navbar-expand-lg col-sm-12 navbar-dark bg-dark">
                     <a class="navbar-brand" href="#">Pocket Git</a>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                          <a class="nav-link" href="./delete">Delete<span class="sr-only">(current)</span></a>
+                        </li>
+                      </ul>
                 </nav>
             </div>
 
 
             <div v-for="item in data" class="row">
-                <div class="card col-md-12">
+                <div class="card col-sm-12">
                     <div class="card-body" >
                         <h5 class="card-title">{{ item.name }}</h5>
-                        <a v-bind:href="item.url">Link</a>
+                        <a v-bind:href="item.url">Details</a>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <form class="form col-md-12" action="./api/delete" method="GET">
-                    <div class="row">
-                        <input class="form-control col-md-10" placeholder="Repo Name" name="repoName">
-                    <button class="btn btn-danger col-md-2" type="submit">Delete</button>
-                    </div>
-                </form>
             </div>
         </div>
 
