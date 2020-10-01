@@ -1,6 +1,8 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
+
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
@@ -19,13 +21,13 @@
                     <a class="navbar-brand" href="./">Pocket Git</a>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                          <a class="nav-link" href="./delete">Delete<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="./delete">Delete<span class="sr-only">(current)</span></a>
                         </li>
-                      </ul>
+                    </ul>
                 </nav>
             </div>
             <div class="row">
-              <div v-html="readme"></div>  
+                <div class="readme_content" v-html="readme"></div>
             </div>
 
         </div>
