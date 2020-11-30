@@ -7,6 +7,3 @@ Thanks to:
 https://www.npmjs.com/package/node-git-server  
 https://www.npmjs.com/package/rimraf  
 https://www.nodegit.org/
-
-Help me buy a raspberry pi  
-https://ko-fi.com/nyasaki
